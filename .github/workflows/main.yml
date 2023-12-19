@@ -5,3 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello, world"
+      - name: Étape pour utiliser un secret
+        run: echo Mon secret est ${{ secrets.MON_SECRET }}
