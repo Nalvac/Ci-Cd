@@ -1,5 +1,8 @@
 name: Ma première Action
 on: [push]
+env :
+  JOUR_DE_LA_SEMAINE: Lundi  # Définition d'une variable d'environnement globale
+
 jobs:
   Explorer-Actions-Github:
     runs-on: ubuntu-latest
@@ -16,3 +19,13 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 Le statut de cette tâche est ${{ job.status }}."
       - run: ls
+  job_de_salutation :  # Nom du job
+      runs-on: ubuntu-latest  # Utilisation de la dernière version d'Ubuntu comme environnement de runner
+      env :
+        Salutation: Bonjour  # Définition d'une variable d'environnement au niveau du job
+      steps :
+        - name : "Dire bonjour à Pierre parce que c'est lundi"  # Nom de l'étape
+          if : ${{ env.JOUR_DE_LA_SEMAINE == 'Lundi' }}  # Condition pour exécuter cette étape
+          run : echo "$Salutation $Prenom. Aujourd'hui, c'est $JOUR_DE_LA_SEMAINE !"  # Commande à exécuter
+          env :
+            Prenom: Pierre  # Définition d'une variable d'environnement au niveau de l'étape
