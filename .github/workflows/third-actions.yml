@@ -1,0 +1,21 @@
+name: Gestion des issues
+
+on:
+  issues:
+    types:
+      - opened
+      - labeled
+
+jobs:
+  check-label:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: vérifie le label "bug"
+      if: ${{ contains(github.event.issue.labels.*.name, 'bug') }}
+      run: echo "Une issue avec le label 'bug' a été détectée."
+
+    - name: vérifie si l'issue est nouvellement ouverte
+      if: ${{ github.event.action == 'opened' }}
+      run: echo "Une nouvelle issue a été ouverte."
