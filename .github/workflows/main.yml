@@ -2,7 +2,7 @@ name: Mon premier workflow
 on: [push]
 jobs:
   say-hello:
-    runs-on: alpine-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Hello, world"
       - name: Étape pour utiliser un secret
