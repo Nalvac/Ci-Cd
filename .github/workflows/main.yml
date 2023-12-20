@@ -10,6 +10,6 @@ jobs:
       - name: install node
         uses: action/setup-node@v4
       - name: fetch repository 
-        run: action/checkout@v4
+        uses: action/checkout@v4
       - name: Install dependencies
         run: npm install 
