@@ -1,6 +1,6 @@
 name: Mon premier workflow
 on: [push]
-default:
+defaults:
   run:
     working-directory: ./vite-project 
 jobs:
