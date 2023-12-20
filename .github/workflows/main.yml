@@ -1,9 +1,15 @@
 name: Mon premier workflow
 on: [push]
+default:
+  run:
+    working-directory: ./vite-project 
 jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, world"
-      - name: Étape pour utiliser un secret
-        run: echo Mon secret est ${{ secrets.MON_SECRET }}
+      - name: install node
+        uses: action/setup-node@v4
+      - name: fetch repository 
+        run: action/checkout@v4
+      - name: Install dependencies
+        run: npm install 
