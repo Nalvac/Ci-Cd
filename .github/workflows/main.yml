@@ -4,12 +4,12 @@ defaults:
   run:
     working-directory: ./vite-project 
 jobs:
-  say-hello:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: install node
-        uses: action/setup-node@v4
+      - name: install nodejs
+        uses: actions/setup-node@v4
       - name: fetch repository 
-        uses: action/checkout@v4
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: npm install 
